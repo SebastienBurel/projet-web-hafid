@@ -49,12 +49,12 @@ function Taille() {
 }
 
 //Les tests
-//initialiser une pile de taille max = 5
+//initialiser une pile de taille max = 2
 Init(2);
 console.log("Taille initiale de la pile: " + Taille());
 Empiler("Elephant");
 Empiler("Giraffe");
-Empiler("Hippo");
+Empiler("Hippo"); //la pile devient pleine du coup message "pile pleine" s'affiche
 Afficher();
 console.log("Taille actuelle de la pile: " + Taille());
 Depiler();

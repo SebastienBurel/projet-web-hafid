@@ -9,13 +9,13 @@ function fibo(n){
 		
 		suite[i] = suite[i-1] + suite[i-2];
 	}
-	// le dernier terme
-	//return suite[n];
+	// le dernier terme	
 	let taille = suite.length;
 	//console.log("taille : " + taille)
-	return suite[taille-1];
+	return suite[taille-1]; //return suite[n]; possible à la place
 }
 
+//autre façon de calculer la suite de fibonacci
 function fibo1(n){
 	let U0 = 0;
 	let U1 = 1;
