@@ -4,21 +4,25 @@
 
 var pile;
 var tailleMax;
-var indice;
+//var indice;
 
 function Init(taille) {	
 	pile = [];  // pile = []
 	tailleMax = taille;
-	indice = 0;
+	//indice = 0;
 	
 }
 
 function Empiler(element){
 	
-	if(indice < tailleMax) {
+	if(pile.length < tailleMax) {
 			
-		pile[indice] = element;
-		indice ++;
+		//pile[indice] = element;
+		//indice ++;
+		
+		pile.push(element);
+			
+		
 	} else {
 		
 		console.log("Pile pleine !");
@@ -26,9 +30,13 @@ function Empiler(element){
 }
 
 function Depiler() {	
-	if(indice > 0) {		
-		indice -- ; // redimensionnement brutal !
-		return pile[indice];
+	if(pile.length > 0) {	
+		
+		//indice -- ; 
+		//return pile[indice];
+		
+		pile.pop();
+		
 	} else {
 		console.log("Pile vide !");
 	}
@@ -38,14 +46,14 @@ function Depiler() {
 
 function Afficher() {
 	
-	for(let i = 0 ; i < indice ; i++){
+	for(let i = 0 ; i < pile.length ; i++){
 		console.log(i + " " + pile[i]);
 	}
 }
 
 function Taille() {
 	
-	return indice;
+	return pile.length;
 }
 
 //Les tests

@@ -18,7 +18,7 @@ let Point  = function (x=0,y=0){ //Point est l'identifiant de la fonction
 		console.log("Point(x="+this.x +",y="+ this.y +")");
 	}
 	
-	return this;
+	return this; //facultatif car un constructeur (avec un new plus bas) renvoie implicitement un return
 }
 
 
