@@ -3,7 +3,7 @@
  * 
  */
 
-let Point  = function (x=0,y=0){
+let Point  = function (x=0,y=0){ //Point est l'identifiant de la fonction
 	this.x = x;
 	this.y = y;
 	
