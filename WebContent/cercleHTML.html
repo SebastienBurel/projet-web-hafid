@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Gestion des cercles</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script type="text/javascript" src="cerclePerso.js"></script>
+<script>
+	function calculerSurface() {
+		console.log("calculer surface");
+		let rayon = document.getElementById("rayon").value;
+		console.log("rayon : " + rayon);
+
+		cerc1 = new cercle(rayon);
+		cerc1.aire();
+		let elementDiv = document.getElementById("divResultat");
+		elementDiv.innerHTML = "<p><b>Surface:</b>" + aire + "</p>";
+		elementDiv.style.display = "block";
+
+	}
+
+	function calculerPerimetre() {
+		console.log("calculer surface");
+		let rayon = document.getElementById("rayon").value;
+		console.log("rayon : " + rayon);
+
+		cerc1 = new cercle(rayon);
+		cerc1.perimetre();
+		let elementDiv = document.getElementById("divResultat");
+		elementDiv.innerHTML = "<p><b>Perimetre:</b>" + perimetre + "</p>";
+		elementDiv.style.display = "block";
+	}
+</script>
+</head>
+<body>
+	<div class="container">
+		<div class="row col-md-12 jumbotron">
+			<h1>Calcul surface/périmetre</h1>
+
+			<form>
+				<div class="form-group">
+					<label for="longueur">Rayon:</label> <input type="number"
+						class="form-control" id="rayon">
+				</div>
+				<input type="button" onclick="calculerSurface()"
+					class="btn btn-success" value="CalculerSurface"> <input
+					type="button" onclick="calculerPerimetre()" class="btn btn-warning"
+					value="CalculerPerimetre">
+			</form>
+			<div id="divResultat" class="alert alert-danger"
+				style="display: none"></div>
+		</div>
+
+	</div>
+</body>
+</html>
