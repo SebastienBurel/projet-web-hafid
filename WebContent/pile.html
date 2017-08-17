@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Gestion de pile</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<style>
+
+	th {
+		text-align : center;
+		font-weight: bold;
+	}
+
+	#divResultat {
+		margin: auto;
+		width : 50%;
+		text-align : center;
+	}
+</style>
+<script type="text/javascript" src="Pile5.js"></script>
+<script>
+	
+	var pile;
+	
+	function initialiser(){
+		let tailleMax = document.getElementById("tailleMax").value;
+		console.log("Taille Max : " + tailleMax);
+		pile = new Pile(tailleMax);
+		let table="<tr><th>Indice</th><th>Element</th></tr>";
+		let elementDiv = document.getElementById("divResultat");
+		elementDiv.innerHTML = table;
+	}
+
+	function empiler(){
+		let element = document.getElementById("element").value;
+		console.log("element : " + element);
+		console.log("Empiler");
+		pile.empiler(element);
+		console.log(pile.afficher());
+		let table="<tr><th>Indice</th><th>Element</th></tr>";
+		for (i = 0; i <pile.elements.length; i++) { 
+		    table += "<tr><td>" +
+		    i +
+		    "</td><td>" +
+		    pile.elements[i] +
+		    "</td></tr>";
+		}
+		let elementDiv = document.getElementById("divResultat");
+		elementDiv.innerHTML = table;
+	}
+	
+	function depiler(){
+		console.log("Dépiler");
+		pile.depiler();
+		console.log(pile.afficher());
+		let table="<tr><th>Indice</th><th>Element</th></tr>";
+		for (i = 0; i <pile.elements.length; i++) { 
+		    table += "<tr><td>" +
+		    i +
+		    "</td><td>" +
+		    pile.elements[i] +
+		    "</td></tr>";
+		}
+		let elementDiv = document.getElementById("divResultat");
+		elementDiv.innerHTML = table;
+	}
+
+</script>
+<style>
+	#divResultat {
+		text-align : center;
+	}
+</style>
+
+</head>
+<body>
+	<div class="container">
+		<div class="row col-md-12 jumbotron">
+			<h1>Initialiser - Empiler - Dépiler</h1>
+			
+			<form>
+			  <div class="form-group">
+			    <label for="element">Element:</label>
+			    <input type="text" class="form-control" id="element">
+			  </div>
+			  <div class="form-group">
+			    <label for="tailleMax">Taille Max:</label>
+			    <input type="number" class="form-control" id="tailleMax">
+			  </div>
+			  <input type="button" onclick="initialiser();" class="btn btn-primary" value="Initialiser">
+			  <input type="button" onclick="empiler();" class="btn btn-success" value="Empiler">
+			  <input type="button" onclick="depiler();" class="btn btn-warning" value="Depiler">
+			</form> 
+			<table id="divResultat"  class="alert alert-info table table-striped"></table>
+		</div>
+	
+	</div>
+</body>
+</html>
