@@ -19,9 +19,8 @@
 </style>
 <script type="text/javascript" src="Pile5.js"></script>
 <script>
-	
 	var pile;
-	
+
 	function initialiser(){
 		let tailleMax = document.getElementById("tailleMax").value;
 		console.log("Taille Max : " + tailleMax);
@@ -64,6 +63,36 @@
 		let elementDiv = document.getElementById("divResultat");
 		elementDiv.innerHTML = table;
 	}
+	
+	
+	function call(){
+		console.log("Appel AJAX");
+		 var xhttp = new XMLHttpRequest();
+		  xhttp.onreadystatechange = function() {
+			  
+		    if (this.readyState == 4 && this.status == 200) {
+		      //document.getElementById("demo").innerHTML = this.responseText;
+		      //alert(this.responseText);	      
+		      
+		    	let elements = JSON.parse(this.responseText);
+		    	let table="<tr><th>Indice</th><th>Element</th></tr>";
+				for (i = 0; i < elements.length; i++) { 
+					 let item = elements[i];
+				    table += "<tr><td>" +				   
+				    item.indice +
+				    "</td><td>" +
+				    item.element +
+				    "</td></tr>";
+				}
+				let elementDiv = document.getElementById("divResultat");
+				elementDiv.innerHTML = table;
+		      
+		    }		    
+		  };
+		  xhttp.open("GET", "http://localhost/elements.json", true);
+		  xhttp.send();
+		
+	}
 
 </script>
 <style>
@@ -90,6 +119,7 @@
 			  <input type="button" onclick="initialiser();" class="btn btn-primary" value="Initialiser">
 			  <input type="button" onclick="empiler();" class="btn btn-success" value="Empiler">
 			  <input type="button" onclick="depiler();" class="btn btn-warning" value="Depiler">
+			  <input type="button" onclick="call();" class="btn btn-warning" value="Appel AJAX">
 			</form> 
 			<table id="divResultat"  class="alert alert-info table table-striped"></table>
 		</div>
